@@ -1,0 +1,84 @@
+// PROBLEM 1 Given an array of integers nums and an integer target,
+//     you need to return the indices of two numbers from the array such that:
+
+// nums[i] + nums[j] = target
+
+// Conditions
+
+// You must use two different elements(i ≠ j).
+// You can return the answer in any order.
+// There is exactly one valid answer for the test case.
+// You cannot use the same index twice.
+
+// TIME COMPLEXITY = 
+
+function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                console.log(i, j)
+                return
+            }
+        }
+    }
+}
+
+
+twoSum([2, 1, 7, 15], 9)
+twoSum([1, 2], 3)
+twoSum([1, 3, 4, 2], 6)
+twoSum([3, 3], 6)
+twoSum([1, 1, 2, 3, 10], 11)
+
+
+
+
+// PROBLEM 2 You are given an array prices, where:
+// prices[i] = the price of a stock on day i.
+
+// You want to buy the stock on one day and sell it on a later day.
+// Your goal is to maximize your profit.
+
+// Rules
+// You can buy only once.
+// You can sell only once.
+// You must sell after you buy (no selling before buying).
+// If no profit is possible, return 0.
+
+
+function buyAndSell(prices) {
+    let MaxProfit = 0
+    for (let i = 0; i < prices.length; i++) {
+        for (let j = i + 1; j < prices.length; j++) {
+            if (prices[j] - prices[i] > MaxProfit) {
+                MaxProfit = prices[j] - prices[i]
+            }
+        }
+    }
+    return MaxProfit
+}
+
+
+console.log(buyAndSell([7, 1, 5, 3, 6, 4]))
+console.log(buyAndSell([7, 6, 4, 3, 1]))
+
+
+
+// PROBLEM 3 Maximum Subarray — Problem Description
+
+// You are given an integer array nums.
+
+// Your task is to find the contiguous subarray(continuous part of the array)
+// that has the largest possible sum, and return that sum.
+
+// Key points:
+// The subarray must be contiguous(no skipping elements).
+// The array may contain negative numbers.
+// The answer is just the maximum sum, not the subarray itself.
+
+
+function maxSubArray(array) {
+
+}
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
