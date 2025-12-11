@@ -78,7 +78,21 @@ console.log(buyAndSell([7, 6, 4, 3, 1]))
 
 
 function maxSubArray(array) {
+    let maxSum = array[0];
+    for (let i = 0; i < array.length; i++) {
+        let currentSum = 0;  // reset for each starting point
 
+        for (let j = i; j < array.length; j++) {
+            currentSum += array[j];   // extend subarray to the right
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum;  // update maximum
+            }
+        }
+    }
+
+    return maxSum;
 }
 
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+console.log(maxSubArray([1, 2, -1, 3])); // 5
+
