@@ -123,6 +123,6 @@ function removeDublicates(arr) {
 }
 
 console.log(removeDublicates([1, 1, 2]))
-console.log(removeDublicates([1, 1, 2, 2, 2, 3, 3, 4]))
+console.log(removeDublicates([1, 1, 2, 2, 2, 3, 3, 4, 5]))
 
 
