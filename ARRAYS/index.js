@@ -96,3 +96,33 @@ function maxSubArray(array) {
 
 console.log(maxSubArray([1, 2, -1, 3])); // 5
 
+
+
+// PROBLEM 4 Remove Duplicates From Sorted Array — Problem Description
+
+// You are given a sorted array(ascending order)
+
+// Your task is to:
+// ✅ Remove the extra duplicates IN - PLACE(inside the same array)
+// ✅ Keep only one copy of each number
+// ✅ And return how many unique elements the array now has
+
+
+function removeDublicates(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let j = i + 1
+        while (j < arr.length) {
+            if (arr[j] === arr[i]) {
+                arr.splice(j, 1)
+            } else {
+                j++
+            }
+        }
+    }
+    return `There are ${arr.length} unique elements`
+}
+
+console.log(removeDublicates([1, 1, 2]))
+console.log(removeDublicates([1, 1, 2, 2, 2, 3, 3, 4]))
+
+
