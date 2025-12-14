@@ -24,11 +24,11 @@ function twoSum(nums, target) {
 }
 
 
-twoSum([2, 1, 7, 15], 9)
-twoSum([1, 2], 3)
-twoSum([1, 3, 4, 2], 6)
-twoSum([3, 3], 6)
-twoSum([1, 1, 2, 3, 10], 11)
+// twoSum([2, 1, 7, 15], 9)
+// twoSum([1, 2], 3)
+// twoSum([1, 3, 4, 2], 6)
+// twoSum([3, 3], 6)
+// twoSum([1, 1, 2, 3, 10], 11)
 
 
 
@@ -59,8 +59,8 @@ function buyAndSell(prices) {
 }
 
 
-console.log(buyAndSell([7, 1, 5, 3, 6, 4]))
-console.log(buyAndSell([7, 6, 4, 3, 1]))
+// console.log(buyAndSell([7, 1, 5, 3, 6, 4]))
+// console.log(buyAndSell([7, 6, 4, 3, 1]))
 
 
 
@@ -81,10 +81,8 @@ function maxSubArray(array) {
     let maxSum = array[0];
     for (let i = 0; i < array.length; i++) {
         let currentSum = 0;  // reset for each starting point
-
         for (let j = i; j < array.length; j++) {
             currentSum += array[j];   // extend subarray to the right
-
             if (currentSum > maxSum) {
                 maxSum = currentSum;  // update maximum
             }
@@ -94,7 +92,7 @@ function maxSubArray(array) {
     return maxSum;
 }
 
-console.log(maxSubArray([1, 2, -1, 3])); // 5
+// console.log(maxSubArray([1, 2, -1, 3])); // 5
 
 
 
@@ -109,17 +107,30 @@ console.log(maxSubArray([1, 2, -1, 3])); // 5
 
 
 function removeDublicates(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        let j = i + 1
-        while (j < arr.length) {
-            if (arr[j] === arr[i]) {
-                arr.splice(j, 1)
-            } else {
-                j++
-            }
+    // New Optimized version
+    if (!arr.length) return
+    let writeIndex = 1
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] !== arr[i - 1]) {
+            arr[writeIndex] = arr[i]
+            writeIndex++
         }
     }
-    return `There are ${arr.length} unique elements`
+    return writeIndex
+
+    // OLD BRUTRE FORCED VERSION
+    // for (let i = 1; i < arr.length; i++) {
+    // let j = i + 1
+    // while (j < arr.length) {
+    //     if (arr[j] === arr[i]) {
+    //         arr.splice(j, 1)
+    //     } else {
+    //         j++
+    //     }
+    // }
+    // }
+    // return `There are ${arr.length} unique elements`
+
 }
 
 console.log(removeDublicates([1, 1, 2]))
